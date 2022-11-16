@@ -8,13 +8,13 @@ load_dotenv()
 mysql_username = os.getenv("MYSQL_USERNAME")
 mysql_password = os.getenv("MYSQL_PASSWORD")
 mysql_host = os.getenv("MYSQL_HOST")
-
+secret_key = os.getenv(SECRET_KEY_PSSP)
 db = SQLAlchemy()
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://' + mysql_username + ':' + mysql_password + '@' + mysql_host + ':3306/patient_portal'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'secret_key_pssp'
+app.secret_key = 'secret_key'
 
 db.init_app(app)
 
