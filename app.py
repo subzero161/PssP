@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, abort
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -5,16 +6,20 @@ import os
 
 load_dotenv()
 
-mysql_username = os.getenv("MYSQL_USERNAME")
-mysql_password = os.getenv("MYSQL_PASSWORD")
-mysql_host = os.getenv("MYSQL_HOST")
-secret_key = os.getenv(SECRET_KEY_PSSP)
+mysql_username = os.getenv("MYSQL_USERNAME_AZURE")
+mysql_password = os.getenv("MYSQL_PASSWORD_AZURE")
+mysql_host = os.getenv("MYSQL_HOSTNAME_AZURE")
+seret_key = os.getenv("SECRET_KEY_PSSP")
+
 db = SQLAlchemy()
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://' + mysql_username + ':' + mysql_password + '@' + mysql_host + ':3306/patient_portal'
+
+app.config['SQLALCHEMY_DATABASE_URI'] ='mysql+mysqldb://' +mysql_username + ':' + mysql_password + '@' + mysql_host + ':3306/patient_portal'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secret_key'
+
+
 
 db.init_app(app)
 
