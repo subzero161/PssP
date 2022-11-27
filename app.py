@@ -6,7 +6,7 @@ import os
 
 load_dotenv()
 
-mysql_username = os.getenv("MYSQL_USERNAME_AZURE")
+mysql_username = os.getenv("MYSQL_HOSTNAME_AZURE")
 mysql_password = os.getenv("MYSQL_PASSWORD_AZURE")
 mysql_host = os.getenv("MYSQL_HOSTNAME_AZURE")
 seret_key = os.getenv("SECRET_KEY_PSSP")
@@ -21,7 +21,7 @@ app.secret_key = 'secret_key'
 
 
 
-db.init_app(app)
+quitdb.init_app(app)
 
 
 ### Models ###
